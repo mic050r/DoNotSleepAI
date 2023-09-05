@@ -6,65 +6,67 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- 외부 CSS 파일 연결 -->
+  <link rel="stylesheet" type="text/css" href="main.css">
   <div>Teachable Machine Image Model</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript">
-    // More API functions here:
-    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-    // the link to your model provided by Teachable Machine export panel
+  <!-- 'Start' 버튼을 누르면 init() 함수가 실행됩니다. -->
+  <button type="button" onclick="init()">Start</button>
+  <!-- 웹캠 영상을 표시할 컨테이너 -->
+  <div id="webcam-container"></div>
+  <!-- 이미지 분류 결과를 표시할 컨테이너 -->
+  <div id="label-container"></div>
+  <!-- TensorFlow.js와 Teachable Machine Image 라이브러리를 로드하는 스크립트 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script type="text/javascript">
+    // Teachable Machine 모델이 저장된 디렉토리 URL
     const URL = "./my_model/";
 
     let model, webcam, labelContainer, maxPredictions;
 
-    // Load the image model and setup the webcam
+    // 이미지 모델과 웹캠을 초기화하는 함수
     async function init() {
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
-        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        // 모델과 메타데이터 로드
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
 
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
+        // 웹캠 설정
+        const flip = true; // 웹캠 영상을 수평으로 뒤집을지 여부
+        webcam = new tmImage.Webcam(500, 500, flip); // 웹캠 크기 (너비: 200, 높이: 200)
+        await webcam.setup(); // 웹캠 접근 권한 요청
+        await webcam.play(); // 웹캠 활성화
+        window.requestAnimationFrame(loop); // 웹캠 영상 업데이트를 요청
 
-        // append elements to the DOM
+        // 웹캠 컨테이너에 웹캠 화면을 추가
         document.getElementById("webcam-container").appendChild(webcam.canvas);
         labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
+        // 예측 결과 레이블 컨테이너를 생성
+        for (let i = 0; i < maxPredictions; i++) {
             labelContainer.appendChild(document.createElement("div"));
         }
     }
 
+    // 웹캠 영상을 반복적으로 업데이트하고 이미지 분류를 실행하는 함수
     async function loop() {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
+        webcam.update(); // 웹캠 영상 업데이트
+        await predict(); // 이미지 분류 실행
+        window.requestAnimationFrame(loop); // 다음 프레임을 요청하여 반복
     }
 
-    // run the webcam image through the image model
+    // 웹캠 영상을 모델을 사용하여 이미지 분류하는 함수
     async function predict() {
-        // predict can take in an image, video or canvas html element
+        // 이미지 모델에 웹캠 영상을 전달하고 예측 결과를 받아옴
         const prediction = await model.predict(webcam.canvas);
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            // 예측 결과를 레이블 컨테이너에 표시
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
     }
-</script>
-
+  </script>
 </body>
 </html>
