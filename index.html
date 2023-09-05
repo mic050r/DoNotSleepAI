@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
-<body>
   <img id="smile-image" src="smile.png" alt="웃는 모습">
   <!-- 외부 CSS 파일 연결 -->
   <link rel="stylesheet" type="text/css" href="main.css">
-  <div>Teachable Machine Image Model</div>
+  
+  <!-- GSAP 라이브러리를 로드합니다. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+</head>
+<body>
+  <div class="wise_saying">지금 잠을 자면 꿈을 꾸지만 잠을 자지 않으면 꿈을 이룬다</div>
+  <!-- 외부 JavaScript 파일 연결 -->
+  <script src="main.js"></script>
   <!-- 'Start' 버튼을 누르면 init() 함수가 실행됩니다. -->
   <button type="button" onclick="init()">Start</button>
   <!-- 웹캠 영상을 표시할 컨테이너 -->
