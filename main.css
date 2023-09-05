@@ -1,0 +1,33 @@
+/* 버튼 스타일링 */
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 컨테이너 스타일링 */
+#webcam-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#label-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 레이블 스타일링 */
+#label-container div {
+  margin: 5px;
+  font-size: 18px;
+}
