@@ -6,6 +6,7 @@
   <title>Document</title>
 </head>
 <body>
+  <img id="smile-image" src="smile.png" alt="웃는 모습">
   <!-- 외부 CSS 파일 연결 -->
   <link rel="stylesheet" type="text/css" href="main.css">
   <div>Teachable Machine Image Model</div>
@@ -35,7 +36,7 @@
 
         // 웹캠 설정
         const flip = true; // 웹캠 영상을 수평으로 뒤집을지 여부
-        webcam = new tmImage.Webcam(500, 500, flip); // 웹캠 크기 (너비: 200, 높이: 200)
+        webcam = new tmImage.Webcam(500, 500, flip); // 웹캠 크기 (너비: 500, 높이: 500)
         await webcam.setup(); // 웹캠 접근 권한 요청
         await webcam.play(); // 웹캠 활성화
         window.requestAnimationFrame(loop); // 웹캠 영상 업데이트를 요청
@@ -67,6 +68,39 @@
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
     }
+  async function predict() {
+    // 이미지 모델에 웹캠 영상을 전달하고 예측 결과를 받아옴
+    const prediction = await model.predict(webcam.canvas);
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        // 예측 결과를 레이블 컨테이너에 표시
+        labelContainer.childNodes[i].innerHTML = classPrediction;
+
+        // 예측 결과에 따라 동작 추가
+        if (prediction[i].className === "업드리면 안돼요!!") {
+            // 경고 팝업 표시
+            alert("업드리면 안돼요!!");
+            // 경고음 재생
+            playAlertSound();
+        } else if (prediction[i].className === "졸지마세요!!") {
+            // 경고음 재생
+            playAlertSound();
+        } else if (prediction[i].className === "바른 자세 좋아요!!") {
+            // 웃는 모습 이미지 표시
+            document.getElementById("smile-image").style.display = "block";
+        } else {
+            // 다른 결과에 대한 동작 추가
+        }
+    }
+}
+
+// 경고음 재생 함수 (예시)
+function playAlertSound() {
+    // 경고음을 재생하는 코드 추가
+}
+
   </script>
+  
 </body>
 </html>
