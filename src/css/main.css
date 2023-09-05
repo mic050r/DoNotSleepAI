@@ -1,48 +1,43 @@
 body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh; /* 화면 높이의 100% */
-  margin: 0; /* body의 기본 마진 제거 */
+  justify-content: center;
+  height: 100vh;
 }
-/* 버튼 */
+
+img#studying-gif {
+  max-width: 100%;
+  height: auto;
+}
+
+.wise_saying {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
 button {
-  padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
   border: none;
-  cursor: pointer;
-  font-size: 16px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* 컨테이너 스타일링 */
-#webcam-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  border-radius: 2%;
-  border-color: aquamarine;
-}
-
 #label-container {
-  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
   margin-top: 20px;
-}
-
-/* 레이블 스타일링 */
-#label-container div {
-  margin: 5px;
-  font-size: 18px;
-}
-/* 사진 크기 */
-#smile-image {
-  width: 50px;
-  height: 50px;
-  display: block;
 }

@@ -5,6 +5,14 @@ let model, webcam, labelContainer, maxPredictions;
 // Load the image model and setup the webcam
 // 이미지 모델을 로드하고 웹캠을 설정하는 함수
 async function init() {
+  // 버튼을 숨기기 위해 버튼 엘리먼트를 찾아서 style 속성을 변경합니다.
+  var startButton = document.getElementById("start-button");
+  startButton.style.display = "none";
+
+  // gif 이미지 숨기기
+  var studyGIF = document.getElementById("studying-gif");
+  studyGIF.style.display = "none";
+
   // 모델 및 메타데이터 파일의 URL
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
