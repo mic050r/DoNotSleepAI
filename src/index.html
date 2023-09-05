@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <img id="smile-image" src="imgs/smile.png" alt="웃는 모습" />
+    <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" type="text/css" href="/src/css/main.css" />
+    <!-- GSAP 라이브러리를 로드합니다. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <!-- TensorFlow.js와 Teachable Machine Image 라이브러리를 로드하는 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  </head>
+  <body>
+    <!-- 명언 -->
+    <div class="wise_saying">
+      지금 잠을 자면 꿈을 꾸지만 잠을 자지 않으면 꿈을 이룬다
+    </div>
+    <!-- 명언 js 연결 -->
+    <script src="/src/js/saying.js"></script>
+
+    <!-- 'Start' 버튼을 누르면 init() 함수가 실행됩니다. -->
+    <button type="button" onclick="init()">Start</button>
+
+    <!-- 웹캠 영상을 표시할 컨테이너 -->
+    <div id="webcam-container"></div>
+
+    <!-- 이미지 분류 결과를 표시할 컨테이너 -->
+    <div id="label-container"></div>
+
+    <!-- 티처블 머신 js 연결 -->
+    <script src="/src/js/main.js"></script>
+  </body>
+</html>

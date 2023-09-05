@@ -1,7 +1,14 @@
-/* 버튼 스타일링 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 화면 높이의 100% */
+  margin: 0; /* body의 기본 마진 제거 */
+}
+/* 버튼 */
 button {
   padding: 10px 20px;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -19,6 +26,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  border-radius: 2%;
+  border-color: aquamarine;
 }
 
 #label-container {
@@ -30,4 +39,10 @@ button:hover {
 #label-container div {
   margin: 5px;
   font-size: 18px;
+}
+/* 사진 크기 */
+#smile-image {
+  width: 50px;
+  height: 50px;
+  display: block;
 }
