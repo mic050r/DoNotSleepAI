@@ -37,7 +37,9 @@ button:hover {
 }
 
 #label-container {
-  font-size: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #2c2c2c;
   font-weight: bold;
   margin-top: 20px;
 }

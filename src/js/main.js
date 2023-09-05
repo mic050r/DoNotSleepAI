@@ -23,7 +23,7 @@ async function init() {
 
   // 웹캠 설정을 위한 편의 함수 호출
   const flip = true; // 웹캠 영상을 좌우로 뒤집을지 여부
-  webcam = new tmImage.Webcam(300, 300, flip); // 웹캠 객체 생성 (너비, 높이, 뒤집기)
+  webcam = new tmImage.Webcam(400, 400, flip); // 웹캠 객체 생성 (너비, 높이, 뒤집기)
   await webcam.setup(); // 웹캠 사용 권한 요청
   await webcam.play(); // 웹캠 영상 시작
   window.requestAnimationFrame(loop); // 애니메이션 프레임 요청
@@ -51,7 +51,7 @@ async function predict() {
   for (let i = 0; i < maxPredictions; i++) {
     // 클래스 예측 결과를 확률과 함께 표시
     const classPrediction =
-      prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+      prediction[i].className + ": " + prediction[i].probability.toFixed(1);
     labelContainer.childNodes[i].innerHTML = classPrediction;
   }
 }
