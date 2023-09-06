@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StayAlertStudy</title>
-    <img id="studying-gif" src="/imgs/studying.gif" alt="공부하는 모습 gif" />
     <!-- 외부 CSS 파일 연결 -->
     <link rel="stylesheet" type="text/css" href="/src/css/main.css" />
     <!-- GSAP 라이브러리를 로드합니다. -->
@@ -14,22 +13,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
   </head>
   <body>
-    <h1>StayAlertStudy: 웹캠 기반 자세 감지 및 졸음 방지 튜터</h1>
-    <!-- 명언 -->
-    <div class="wise_saying">졸면 안됑!</div>
-    <!-- 명언 js 연결 -->
-    <script src="/src/js/saying.js"></script>
+    <div class="header">
+      <div class="img">
+        <!-- 이미지를 body 내부로 이동 -->
+        <img
+          id="studying-gif"
+          src="/imgs/studying.gif"
+          alt="공부하는 모습 gif"
+        />
+      </div>
+      <h1>StayAlertStudy: 웹캠 기반 자세 감지 및 졸음 방지 튜터</h1>
+      <!-- 명언 -->
+      <div class="wise_saying">졸면 안됑!</div>
+      <!-- 명언 js 연결 -->
+      <script src="/src/js/saying.js"></script>
 
-    <!-- 'Start' 버튼을 누르면 init() 함수가 실행됩니다. -->
-    <button id="start-button" type="button" onclick="init()">Start</button>
+      <!-- 'Start' 버튼을 누르면 init() 함수가 실행됩니다. -->
+      <button id="start-button" type="button" onclick="init()">Start</button>
 
-    <!-- 웹캠 영상을 표시할 컨테이너 -->
-    <div id="webcam-container"></div>
+      <!-- 웹캠 영상을 표시할 컨테이너 -->
+      <div id="webcam-container"></div>
 
-    <!-- 이미지 분류 결과를 표시할 컨테이너 -->
-    <div id="label-container"></div>
+      <!-- 이미지 분류 결과를 표시할 컨테이너 -->
+      <div id="label-container"></div>
 
-    <!-- 티처블 머신 js 연결 -->
-    <script src="/src/js/main.js"></script>
+      <!-- 티처블 머신 js 연결 -->
+      <script src="/src/js/main.js"></script>
+    </div>
   </body>
 </html>

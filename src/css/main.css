@@ -9,8 +9,35 @@ body {
   justify-content: center;
   height: 100vh;
 }
+.header {
+  text-align: center; /* 헤더 안의 텍스트를 가운데 정렬합니다. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 1000px; /* 최대 너비 설정 */
+  margin-bottom: 20px;
+  background-color: #f0f0f0; /* 배경색 설정 */
+  padding: 20px; /* 여백 설정 */
+  border-radius: 10px; /* 모서리를 둥글게 설정 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+}
 
-img#studying-gif {
+.header h1,
+.header .wise_saying,
+.header #start-button {
+  margin: 10px; /* 텍스트 요소들 사이의 여백 조정 */
+}
+
+.header .img #studying-gif {
+  margin-top: 10%;
+  margin-bottom: 8%;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  border: 2px solid rgba(61, 49, 49, 0.2); /* 테두리 추가 */
+  opacity: 0.9; /* 이미지를 불투명하게 만듭니다. (0.9는 불투명도 정도를 나타냅니다) */
   max-width: 100%;
   height: auto;
 }
@@ -36,7 +63,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-#label-container {
+.header #label-container {
   font-family: Arial, sans-serif;
   font-size: 18px;
   color: #2c2c2c;
