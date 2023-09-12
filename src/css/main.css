@@ -50,17 +50,17 @@ body {
 }
 
 button {
-  background-color: #007bff;
+  background-color: #b77878f5;
   color: white;
-  font-size: 18px;
+  font-size: 19px;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #855a5af5;
 }
 
 .header #label-container {
