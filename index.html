@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StayAlertStudy</title>
     <!-- 외부 CSS 파일 연결 -->
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
     <!-- GSAP 라이브러리를 로드합니다. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <!-- TensorFlow.js와 Teachable Machine Image 라이브러리를 로드하는 스크립트 -->
@@ -24,6 +24,8 @@
       <h1>StayAlertStudy: 웹캠 기반 자세 감지 및 졸음 방지 튜터</h1>
       <!-- 명언 -->
       <div class="wise_saying">졸면 안됑!</div>
+      <!-- 명언 js 연결 -->
+      <script src="/js/saying.js"></script>
 
       <!-- 'Start' 버튼을 누르면 init() 함수가 실행됩니다. -->
       <button id="start-button" type="button" onclick="init()">Start</button>
@@ -35,7 +37,7 @@
       <div id="label-container"></div>
 
       <!-- 티처블 머신 js 연결 -->
-      <script src="../js/main.js"></script>
+      <script src="/js/main.js"></script>
     </div>
   </body>
 </html>
